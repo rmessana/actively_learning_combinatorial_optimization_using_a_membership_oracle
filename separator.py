@@ -165,7 +165,7 @@ class SVMLinearSeparator(LinearSeparator):
         temp_model.setParam("OutputFlag", verbose)
         temp_model.setParam("Threads", 4)
         for method_code in {2: "barrier", 1: "dual simplex", 0: "primal simplex"}:
-            print({2: "barrier", 1: "dual simplex", 0: "primal simplex"}[method_code])
+            # print({2: "barrier", 1: "dual simplex", 0: "primal simplex"}[method_code])
             temp_model.setParam("Method", method_code)
             temp_model.optimize()
             if temp_model.Status == 2:
@@ -176,7 +176,7 @@ class SVMLinearSeparator(LinearSeparator):
             w = np.array([temp_variables["w"][j].X for j in range(self.dimension)])
             solution = {"b": b, "w": w}
         else:
-            print("barrier + BarConvTol")
+            # print("barrier + BarConvTol")
             self.model.setParam("Method", 2)
             self.model.setParam("BarConvTol", 0.1)
             temp_model.optimize()
@@ -194,7 +194,7 @@ class SVMLinearSeparator(LinearSeparator):
         self.model.setParam("OutputFlag", verbose)
         self.model.setParam("Threads", 4)
         for method_code in {2: "barrier", 1: "dual simplex", 0: "primal simplex"}:
-            print({2: "barrier", 1: "dual simplex", 0: "primal simplex"}[method_code])
+            # print({2: "barrier", 1: "dual simplex", 0: "primal simplex"}[method_code])
             self.model.setParam("Method", method_code)
             self.model.optimize()
             if self.model.Status == 2:
@@ -205,7 +205,7 @@ class SVMLinearSeparator(LinearSeparator):
             w = np.array([self.variables["w"][j].X for j in range(self.dimension)])
             solution = {"b": b, "w": w}
         else:
-            print("barrier + BarConvTol")
+            # print("barrier + BarConvTol")
             self.model.setParam("Method", 2)
             self.model.setParam("BarConvTol", 0.1)
             self.model.optimize()

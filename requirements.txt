@@ -1,0 +1,6 @@
+gurobipy
+matplotlib
+mpl-tools
+numpy
+pandas
+scipy
